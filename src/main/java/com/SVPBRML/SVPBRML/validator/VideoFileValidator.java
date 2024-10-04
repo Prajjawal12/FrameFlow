@@ -5,7 +5,7 @@ import java.util.List;
 
 public class VideoFileValidator {
   private final static List<String> allowedFileTypes = Arrays.asList("mp4", "avi", "mkv", "mov", "flv", "mpeg", "wmv");
-  private static final long maxFileSize = 104857600;
+  private static final long maxFileSize = 10485760;
 
   public static boolean isValidFileType(String fileName) {
     String fileExtension = fileName.substring(fileName.lastIndexOf("."));
