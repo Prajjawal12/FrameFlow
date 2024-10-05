@@ -8,7 +8,11 @@ public class VideoFileValidator {
   private static final long maxFileSize = 10485760;
 
   public static boolean isValidFileType(String fileName) {
-    String fileExtension = fileName.substring(fileName.lastIndexOf("."));
+
+    if (fileName.lastIndexOf(".") == -1) {
+      return false;
+    }
+    String fileExtension = fileName.substring(fileName.lastIndexOf(".") + 1).toLowerCase();
     return allowedFileTypes.contains(fileExtension);
   }
 
@@ -19,5 +23,4 @@ public class VideoFileValidator {
   public static List<String> getAllowedFileTypes() {
     return allowedFileTypes;
   }
-
 }

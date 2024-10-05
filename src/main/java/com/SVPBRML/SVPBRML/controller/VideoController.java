@@ -4,7 +4,6 @@ import com.SVPBRML.SVPBRML.model.Video;
 import com.SVPBRML.SVPBRML.service.VideoMetadataService;
 import com.SVPBRML.SVPBRML.validator.VideoFileValidator;
 
-import org.apache.tika.exception.TikaException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +24,7 @@ public class VideoController {
 
   @PostMapping("/upload")
   public ResponseEntity<String> uploadVideo(@RequestParam("file") MultipartFile file)
-      throws IOException, SAXException, TikaException {
+      throws IOException, SAXException {
     String fileName = file.getOriginalFilename();
 
     if (fileName == null || !VideoFileValidator.isValidFileType(fileName)) {
