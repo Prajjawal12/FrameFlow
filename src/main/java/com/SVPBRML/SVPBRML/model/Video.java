@@ -18,8 +18,10 @@ public class Video {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+
   @Column(nullable = false)
   private String fileName;
+
   @Column(nullable = false)
   private long fileSize;
 
@@ -33,9 +35,10 @@ public class Video {
 
   private String frameRate;
 
+  private String fileExtension;
+
   @PrePersist
   public void prePersist() {
     this.uploadedAt = LocalDateTime.now();
   }
-
 }
